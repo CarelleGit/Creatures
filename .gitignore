@@ -26,3 +26,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+Assets/AssetStoreTools*
