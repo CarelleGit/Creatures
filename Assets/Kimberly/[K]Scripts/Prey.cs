@@ -23,12 +23,17 @@ public class Prey : MonoBehaviour
     public GameObject food;
     public GameObject hunter;
     public GameObject predetor;
+    public float docileTime;//Time until the animal is docile again
+    float timer;
+
   
 
     NavMeshAgent agent;
     // Use this for initialization
     void Start()
     {
+        timer = docileTime;
+        
         agent = GetComponent<NavMeshAgent>();
         wander = GetComponent<Wander>();
         flee = GetComponent<Flee>();
@@ -52,14 +57,20 @@ public class Prey : MonoBehaviour
             currentState = prey.Eat;
         }
 
-        if(Vector3.Distance(predetor.transform.position, transform.position) <= 10 || Vector3.Distance(hunter.transform.position, transform.position) <= 10)
+        if(Vector3.Distance(predetor.transform.position, transform.position) <= 3 || Vector3.Distance(hunter.transform.position, transform.position) <= 3)
         {
             currentState = prey.Flee;
         }
-        else
+
+        if (timer >= docileTime && currentState == prey.Flee)
         {
             currentState = prey.Wander;
+            timer = 0;
         }
+        //if ()
+        //{
+        //    currentState = prey.Wander;
+        //}
         if (currentHunger >= maxHunger)
         {
             currentState = prey.Wander;
@@ -68,6 +79,8 @@ public class Prey : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        timer += Time.deltaTime;
         switch(currentState)
         {
             case prey.Wander:
@@ -86,13 +99,15 @@ public class Prey : MonoBehaviour
                 }
                 break;
             case prey.Flee:
-              if(Vector3.Distance(predetor.transform.position, transform.position) <= 10)
+              if(Vector3.Distance(predetor.transform.position, transform.position) <= 1)
                 {
                     agent.destination = flee.returnPreditor();
+                    agent.destination = -agent.destination;
                 }
-                if (Vector3.Distance(hunter.transform.position, transform.position) <= 10)
+                if (Vector3.Distance(hunter.transform.position, transform.position) <= 1)
                 {
                     agent.destination = flee.returnHunter();
+                    agent.destination = -agent.destination;
                 }
                 break;
         }
