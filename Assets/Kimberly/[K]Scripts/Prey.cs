@@ -11,9 +11,9 @@ public enum prey
 
 public class Prey : MonoBehaviour, IDamageable
 {
-    Wander wander;
-    Flee flee;
-    Seek seek;
+    wander wander;
+    flee flee;
+    seek seek;
 
     public float currentHunger;
     public float maxHunger;
@@ -37,9 +37,9 @@ public class Prey : MonoBehaviour, IDamageable
         timer = docileTime;
 
         agent = GetComponent<NavMeshAgent>();
-        wander = GetComponent<Wander>();
-        flee = GetComponent<Flee>();
-        seek = GetComponent<Seek>();
+        wander = GetComponent<wander>();
+        flee = GetComponent<flee>();
+        seek = GetComponent<seek>();
 
         hunter = GameObject.FindGameObjectWithTag("Hunter");
         predetor = GameObject.FindGameObjectWithTag("Preditor");
@@ -105,7 +105,7 @@ public class Prey : MonoBehaviour, IDamageable
         switch (currentState)
         {
             case prey.Wander:
-                agent.destination = wander.wanderingPoints();
+                agent.destination = wander.wandercontol();
                 break;
             case prey.Eat:
                 float distance = Vector3.Distance(transform.position, food.transform.position);
@@ -121,7 +121,7 @@ public class Prey : MonoBehaviour, IDamageable
                 break;
             case prey.Flee:
                 
-                    agent.destination = flee.returnTarget();
+                    agent.destination = flee.returnFleeVector();
                     agent.speed = 10;
                 if (Vector3.Distance(flee.target.transform.position, transform.position) >= 15)
                 {

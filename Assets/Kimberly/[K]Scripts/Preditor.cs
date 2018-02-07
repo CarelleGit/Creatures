@@ -10,8 +10,8 @@ public enum preditor
 
 public class Preditor : MonoBehaviour, IDamageable
 {
-    Wander wander;
-    Seek seek;
+    wander wander;
+    seek seek;
 
     public preditor creature;
 
@@ -27,13 +27,12 @@ public class Preditor : MonoBehaviour, IDamageable
 
     NavMeshAgent agent;
 
-
     // Use this for initialization
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        wander = GetComponent<Wander>();
-        seek = GetComponent<Seek>();
+        wander = GetComponent<wander>();
+        seek = GetComponent<seek>();
 
         prey = GameObject.FindGameObjectWithTag("Prey");
 
@@ -71,7 +70,7 @@ public class Preditor : MonoBehaviour, IDamageable
         switch (creature)
         {
             case preditor.wander:
-                agent.destination = wander.wanderingPoints();
+                agent.destination = wander.wandercontol();
                 agent.speed = 3;
                 break;
             case preditor.chase:
@@ -79,11 +78,10 @@ public class Preditor : MonoBehaviour, IDamageable
                 {
                     creature = preditor.wander;
                 }
-                agent.destination = seek.returnTarget();
+                agent.destination = seek.returnttargetspos();
                 if(Vector3.Distance(transform.position, seek.target.position) <= 3)
                 {
                     seek.target.GetComponent<IDamageable>().takeDamage(3);
-                    
                 }
                 agent.speed = 8;
                 break;

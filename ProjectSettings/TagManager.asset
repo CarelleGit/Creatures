@@ -4,17 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
-  - pray
-  - hunter
-  - panditer
-  - food
-=======
-  - Hunter
   - Preditor
-  - Food
+  - hunter
   - Prey
->>>>>>> 21918c26b06347c783650531011af53019757886
   layers:
   - Default
   - TransparentFX
