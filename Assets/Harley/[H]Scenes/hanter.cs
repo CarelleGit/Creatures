@@ -8,7 +8,8 @@ public enum States
     seek,
     flee,
 }
-public class hanter : MonoBehaviour {
+public class hanter : MonoBehaviour,IDamageable
+{
     NavMeshAgent agent;
     public States state;
     public float radius;
@@ -17,12 +18,17 @@ public class hanter : MonoBehaviour {
     flee flee;
     public float hunger;
    public GameObject pray;
+    public float health;
+    public float currenthealth;
+    public hunterspawn spawn;
 	// Use this for initialization
 	void Start () {
         agent = GetComponent<NavMeshAgent>();
         seek = GetComponent<seek>();
         wander = GetComponent<wander>();
         flee = GetComponent<flee>();
+        health = currenthealth;
+ 
 	}
     bool pathComplete()
     {
@@ -46,18 +52,33 @@ public class hanter : MonoBehaviour {
                 agent.destination = wander.wandercontol();
                 break;
             case States.seek:
+                if (seek.target == null)
+                {
+                    state = States.wandermap;
+                }
                 agent.destination = seek.returnttargetspos();
+                if (Vector3.Distance(transform.position, seek.target.position) <= 3)
+                {
+                    seek.target.GetComponent<IDamageable>().takeDamage(3);
+
+                }
+               
                 break;
             case States.flee:
                 agent.destination = flee.returnFleeVector();
+                if (Vector3.Distance(flee.target.transform.position, transform.position) >= 15)
+                {
+                    state = States.wandermap;
+                }
                 break;
         }
         if(state == States.wandermap)
         {
             swichstate();
         }
-       
-	}
+        Debug.DrawLine(transform.position, agent.destination, Color.red);
+
+    }
     void swichstate()
     {
         if(hunger <= 0)
@@ -68,12 +89,12 @@ public class hanter : MonoBehaviour {
         foreach(Collider hit in hitColliders)
         {
             
-            if (hit.tag == "pray")
+            if (hit.tag == "Prey")
             {
                 state = States.seek;
                 seek.target = hit.transform;
             }
-            else if (hit.tag == "panditer")
+            else if (hit.tag == "Preditor")
             {
 
                 state = States.flee;
@@ -86,13 +107,27 @@ public class hanter : MonoBehaviour {
       
         
     }
+    public void takeDamage(float damage)
+    {
+        health -= damage;
+        if(health<= 0)
+        {
+            die();
+        }
+    }
     void OnCollisionEnter(Collision other)
     {
-        if (other.collider.tag == "pray")
+        if (other.collider.tag == "prey")
         {
             state = States.wandermap;
             //other.gameObject.SetActive(false);
             Destroy(other.gameObject);
         }
+    }
+   public void die()
+    {
+        
+        spawn.currentanmontofenemys -= 1;
+        Destroy(gameObject);
     }
 }

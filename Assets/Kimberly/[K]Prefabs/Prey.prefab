@@ -139,10 +139,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1767653610616920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f16254327a4bd44799f7fd3a04e414b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5045eeefbf4af1644a92bd3f2883ae2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
   target: {fileID: 0}
 --- !u!114 &114675812331193878
 MonoBehaviour:
@@ -152,12 +152,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1767653610616920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dbdc977898af1d45836f4cf2ec6b629, type: 3}
+  m_Script: {fileID: 11500000, guid: 67d6e1eaf69ddd84cb1a3b6e0f16440a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dis: 4
   radius: 2
-  jitter: 3
-  distance: 4
+  speed: 10
+  jitter: 0
   target: {x: 0, y: 0, z: 0}
 --- !u!195 &195509816009125514
 NavMeshAgent:
