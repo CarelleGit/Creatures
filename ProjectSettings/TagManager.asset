@@ -7,6 +7,7 @@ TagManager:
   - Hunter
   - Preditor
   - Food
+  - Prey
   layers:
   - Default
   - TransparentFX

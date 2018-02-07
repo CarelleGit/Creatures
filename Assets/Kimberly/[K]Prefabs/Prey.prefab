@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 114622714555937286}
   m_Layer: 0
   m_Name: Prey
-  m_TagString: Untagged
+  m_TagString: Prey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,6 +125,7 @@ MonoBehaviour:
   maxHunger: 1000
   health: 10
   maxHealth: 10
+  radius: 8
   currentState: 1
   food: {fileID: 0}
   hunter: {fileID: 0}
@@ -142,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  target: {fileID: 0}
 --- !u!114 &114675812331193878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -153,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dbdc977898af1d45836f4cf2ec6b629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 10
+  radius: 2
   jitter: 3
   distance: 4
   target: {x: 0, y: 0, z: 0}

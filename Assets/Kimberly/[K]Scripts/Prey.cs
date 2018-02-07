@@ -6,18 +6,20 @@ using UnityEngine.AI;
 
 public enum prey
 {
-    Eat, Wander, Flee
+    Eat, Wander, Flee, die
 }
 
-public class Prey : MonoBehaviour
+public class Prey : MonoBehaviour, IDamageable
 {
     Wander wander;
     Flee flee;
+    Seek seek;
 
     public float currentHunger;
     public float maxHunger;
-    public int health;
-    public int maxHealth;
+    public float health;
+    public float maxHealth;
+    public float radius;
     public prey currentState;
 
     public GameObject food;
@@ -26,17 +28,18 @@ public class Prey : MonoBehaviour
     public float docileTime;//Time until the animal is docile again
     float timer;
 
-  
+
 
     NavMeshAgent agent;
     // Use this for initialization
     void Start()
     {
         timer = docileTime;
-        
+
         agent = GetComponent<NavMeshAgent>();
         wander = GetComponent<Wander>();
         flee = GetComponent<Flee>();
+        seek = GetComponent<Seek>();
 
         hunter = GameObject.FindGameObjectWithTag("Hunter");
         predetor = GameObject.FindGameObjectWithTag("Preditor");
@@ -47,41 +50,59 @@ public class Prey : MonoBehaviour
     }
     void switchControl()
     {
-        if(currentState == prey.Wander)
-        {
-            currentHunger -= .5f;
-        }
-
         if (currentHunger <= 0)
         {
             currentState = prey.Eat;
         }
 
-        if(Vector3.Distance(predetor.transform.position, transform.position) <= 3 || Vector3.Distance(hunter.transform.position, transform.position) <= 3)
+        if (currentState != prey.Flee)
         {
-            currentState = prey.Flee;
+            Collider[] hitCollider = Physics.OverlapSphere(transform.position, radius);
+            foreach (Collider hit in hitCollider)
+            {
+                if (hit.tag == "Preditor")
+                {
+                    flee.target = hit.transform;
+                    currentState = prey.Flee;
+                }
+                if (hit.tag == "Hunter")
+                {
+                    flee.target = hit.transform;
+                    currentState = prey.Flee;
+                }
+
+            }
+        }
+      
+       
+        if (currentState == prey.Wander)
+        {
+            currentHunger -= .5f;
+            agent.speed = 3;
         }
 
-        if (timer >= docileTime && currentState == prey.Flee)
-        {
-            currentState = prey.Wander;
-            timer = 0;
-        }
-        //if ()
-        //{
-        //    currentState = prey.Wander;
-        //}
+      
+      
         if (currentHunger >= maxHunger)
         {
             currentState = prey.Wander;
         }
+        if (health <= 0)
+        {
+            currentState = prey.die;
+        }
+
+    }
+    public void takeDamage(float damage)
+    {
+        health -= damage;
     }
     // Update is called once per frame
     void Update()
     {
 
         timer += Time.deltaTime;
-        switch(currentState)
+        switch (currentState)
         {
             case prey.Wander:
                 agent.destination = wander.wanderingPoints();
@@ -99,18 +120,23 @@ public class Prey : MonoBehaviour
                 }
                 break;
             case prey.Flee:
-              if(Vector3.Distance(predetor.transform.position, transform.position) <= 1)
+                
+                    agent.destination = flee.returnTarget();
+                    agent.speed = 10;
+                if (Vector3.Distance(flee.target.transform.position, transform.position) >= 15)
                 {
-                    agent.destination = flee.returnPreditor();
-                    agent.destination = -agent.destination;
+                    currentState = prey.Wander;
                 }
-                if (Vector3.Distance(hunter.transform.position, transform.position) <= 1)
+                break;
+            case prey.die:
+                if (health <= 0)
                 {
-                    agent.destination = flee.returnHunter();
-                    agent.destination = -agent.destination;
+                    Destroy(gameObject);
                 }
                 break;
         }
+        Debug.DrawLine(transform.position, agent.destination, Color.red);
         switchControl();
     }
 }
+

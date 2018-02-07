@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject creature;
-    
+
     public float spawnInt;
     public float range;
     public float timer;
@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-       timer = spawnInt;
+        timer = spawnInt;
         listOfCreatures = new List<GameObject>();
     }
 
@@ -30,26 +30,31 @@ public class Spawner : MonoBehaviour
             float rany = Random.Range(-range, range);
             spawnCreature.transform.position = transform.position + new Vector3(ranx, 0, rany);
             listOfCreatures.Add(spawnCreature);
+            for (int i = 0; i < listOfCreatures.Count; i++)
+            {
+                if (creature == null)
+                {
+                    Destroy(listOfCreatures[i]);
+                    listOfCreatures.RemoveAt(i);
+                    creatureCount--;
+                }
+            }
         }
     }
     // Update is called once per frame
     void Update()
     {
         timer -= Time.deltaTime;
-        if(timer <= 0)
+        if (timer <= 0)
         {
-            if(creatureCount <= limit-1)
+            if (creatureCount <= limit - 1)
             {
                 enemies();
                 timer = spawnInt;
                 creatureCount++;
             }
         }
-        //for (int i = 0; i < listOfCreatures.Count; i++)
-        //{
-        //    Destroy(listOfCreatures[i]);
-        //    listOfCreatures.RemoveAt(i);
-        //    creatureCount--;
-        //}
+        
     }
 }
+
