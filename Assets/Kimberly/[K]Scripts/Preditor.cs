@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public enum preditor
 {
-    wander, chase
+    wander,
+    chase
 }
 
 public class Preditor : MonoBehaviour

@@ -27,6 +27,7 @@ public class hunterspawn : MonoBehaviour {
         float z = Random.Range(-range, range);
         spawnedEnemey.transform.position = transform.position + new Vector3(x, 0, z);
         listOfEnemies.Add(spawnedEnemey);
+        spawnedEnemey.GetComponent<hanter>().spawn = this;
         currentanmontofenemys += 1;
     }
 

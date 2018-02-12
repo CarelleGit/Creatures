@@ -6,7 +6,10 @@ using UnityEngine.AI;
 
 public enum prey
 {
-    Eat, Wander, Flee, die
+    Eat,
+    Wander,
+    Flee,
+    die
 }
 
 public class Prey : MonoBehaviour, IDamageable
