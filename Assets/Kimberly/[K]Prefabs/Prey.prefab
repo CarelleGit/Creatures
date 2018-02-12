@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114239491097111010}
   - component: {fileID: 114444231144892878}
   - component: {fileID: 114072776438906654}
+  - component: {fileID: 114675812331193878}
   m_Layer: 0
   m_Name: Prey
   m_TagString: Prey
@@ -77,7 +78,6 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33023701747722638
 MeshFilter:
@@ -158,15 +158,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5045eeefbf4af1644a92bd3f2883ae2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  speed: 0
-  target: {fileID: 0}
-=======
   speed: 5
   target: {fileID: 0}
 --- !u!114 &114675812331193878
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1767653610616920}
@@ -180,7 +176,6 @@ MonoBehaviour:
   speed: 10
   jitter: 0
   target: {x: 0, y: 0, z: 0}
->>>>>>> Harley
 --- !u!195 &195509816009125514
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -188,7 +183,6 @@ NavMeshAgent:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1767653610616920}
   m_Enabled: 1
-  m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
