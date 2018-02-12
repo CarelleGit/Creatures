@@ -8,7 +8,7 @@ public enum preditor
     wander, chase
 }
 
-public class Preditor : MonoBehaviour, IDamageable
+public class Preditor : MonoBehaviour
 {
     wander wander;
     seek seek;
@@ -34,13 +34,9 @@ public class Preditor : MonoBehaviour, IDamageable
         wander = GetComponent<wander>();
         seek = GetComponent<seek>();
 
-        prey = GameObject.FindGameObjectWithTag("Prey");
+        prey = GameObject.FindGameObjectWithTag("pray");
 
         currentHealth = maxHealth;
-    }
-    public void takeDamage(float damage)
-    {
-        currentHealth -= damage;
     }
     void switchControl()
     {
@@ -50,7 +46,7 @@ public class Preditor : MonoBehaviour, IDamageable
             foreach (Collider hit in hitCollider)
             {
 
-                if (hit.tag == "Prey")
+                if (hit.tag == "pray")
                 {
                     seek.target = hit.transform;
                     creature = preditor.chase;
