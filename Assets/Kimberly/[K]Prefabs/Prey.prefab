@@ -23,11 +23,10 @@ GameObject:
   - component: {fileID: 65238768759328904}
   - component: {fileID: 23262508374604896}
   - component: {fileID: 65635262940439150}
-  - component: {fileID: 195509816009125514}
   - component: {fileID: 114239491097111010}
   - component: {fileID: 114444231144892878}
   - component: {fileID: 114072776438906654}
-  - component: {fileID: 114675812331193878}
+  - component: {fileID: 195850698188580116}
   m_Layer: 0
   m_Name: Prey
   m_TagString: Prey
@@ -147,6 +146,7 @@ MonoBehaviour:
   hunter: {fileID: 0}
   predetor: {fileID: 0}
   docileTime: 3
+  spawn: {fileID: 0}
 --- !u!114 &114444231144892878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,23 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   target: {fileID: 0}
---- !u!114 &114675812331193878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1767653610616920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67d6e1eaf69ddd84cb1a3b6e0f16440a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dis: 4
-  radius: 2
-  speed: 10
-  jitter: 0
-  target: {x: 0, y: 0, z: 0}
---- !u!195 &195509816009125514
+--- !u!195 &195850698188580116
 NavMeshAgent:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
