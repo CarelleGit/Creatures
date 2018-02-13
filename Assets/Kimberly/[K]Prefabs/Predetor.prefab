@@ -25,7 +25,6 @@ GameObject:
   - component: {fileID: 65119962919332970}
   - component: {fileID: 195789579260381198}
   - component: {fileID: 114282543130891698}
-  - component: {fileID: 114332977977501342}
   - component: {fileID: 114298105811939658}
   - component: {fileID: 114002795101571276}
   - component: {fileID: 114400028712786060}
@@ -79,6 +78,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33730769569886064
 MeshFilter:
@@ -156,17 +156,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   target: {fileID: 0}
---- !u!114 &114332977977501342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1689610310762210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114400028712786060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +179,7 @@ NavMeshAgent:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1689610310762210}
   m_Enabled: 1
+  m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
