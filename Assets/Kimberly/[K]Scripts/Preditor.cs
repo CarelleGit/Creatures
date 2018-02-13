@@ -26,8 +26,8 @@ public class Preditor : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
     public float timer;
-    public float docileTime;
-    public float setTime;
+    //public float docileTime;
+    //public float setTime;
 
     NavMeshAgent agent;
 
@@ -67,13 +67,19 @@ public class Preditor : MonoBehaviour
                     //creature = preditor.trap;
                 }
             }
-        }
-        if(creature == preditor.wander)
-        {
             timer += Time.deltaTime;
             if (timer >= timerSet)
             {
                 creature = preditor.trap;
+                timer = 0;
+            }
+        }
+        if(creature == preditor.trap)
+        {
+            timer += Time.deltaTime;
+            if (timer >= timerSet)
+            {
+                creature = preditor.wander;
                 timer = 0;
             }
         }
@@ -108,17 +114,8 @@ public class Preditor : MonoBehaviour
                 agent.speed = 8;
                 break;
             case preditor.trap:
-               
                 agent.destination = food.transform.position;
-                if(Vector3.Distance(transform.position, food.transform.position) < 3)
-                {
-                    creature = preditor.wander;
-                }
-                   // timer += Time.deltaTime;
-                   // creature = preditor.wander;
-                  
-                
-                break;
+              break;
         }
         switchControl();
         Debug.DrawLine(transform.position, agent.destination, Color.red);
