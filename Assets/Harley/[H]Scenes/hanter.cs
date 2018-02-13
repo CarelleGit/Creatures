@@ -50,6 +50,7 @@ public class hanter : MonoBehaviour,IDamageable
         {
             case States.wandermap:
                 agent.destination = wander.wandercontol();
+                agent.speed = 5;
                 break;
             case States.seek:
                 if (seek.target == null)
@@ -57,12 +58,18 @@ public class hanter : MonoBehaviour,IDamageable
                     state = States.wandermap;
                 }
                 agent.destination = seek.returnttargetspos();
+                if (Vector3.Distance(seek.target.transform.position, transform.position) >= 15)
+                {
+                    state = States.wandermap;
+                }
                 if (Vector3.Distance(transform.position, seek.target.position) <= 3)
                 {
                     seek.target.GetComponent<IDamageable>().takeDamage(3);
+                    hunger += 5;
 
                 }
-               
+                agent.speed = 10;
+
                 break;
             case States.flee:
                 agent.destination = flee.returnFleeVector();
@@ -70,6 +77,7 @@ public class hanter : MonoBehaviour,IDamageable
                 {
                     state = States.wandermap;
                 }
+                agent.speed = 10;
                 break;
         }
         if(state == States.wandermap)
@@ -81,10 +89,6 @@ public class hanter : MonoBehaviour,IDamageable
     }
     void swichstate()
     {
-        if(hunger <= 0)
-        {
-           
-        }
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
         foreach(Collider hit in hitColliders)
         {
@@ -122,6 +126,7 @@ public class hanter : MonoBehaviour,IDamageable
             state = States.wandermap;
             //other.gameObject.SetActive(false);
             Destroy(other.gameObject);
+           
         }
     }
    public void die()
