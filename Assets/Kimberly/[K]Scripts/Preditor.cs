@@ -26,6 +26,7 @@ public class Preditor : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
     public float timer;
+    public Spawner spawn;
     //public float docileTime;
     //public float setTime;
 

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-
 public enum prey
 {
     Eat,
@@ -30,13 +29,13 @@ public class Prey : MonoBehaviour, IDamageable
     public GameObject predetor;
     public float docileTime;//Time until the animal is docile again
     float timer;
-
-
-
+    public Spawner spawn;
     NavMeshAgent agent;
+
     // Use this for initialization
     void Start()
     {
+        
         timer = docileTime;
 
         agent = GetComponent<NavMeshAgent>();
@@ -66,22 +65,23 @@ public class Prey : MonoBehaviour, IDamageable
             Collider[] hitCollider = Physics.OverlapSphere(transform.position, radius);
             foreach (Collider hit in hitCollider)
             {
-                if (hit.tag == "Preditor")
-                {
-                    flee.target = hit.transform;
-                    currentState = prey.Flee;
-                }
-                if (hit.tag == "Hunter")
-                {
-                    flee.target = hit.transform;
-                    currentState = prey.Flee;
-                }
                 if (hit.tag == "Food")
                 {
                     //seek.target = hit.transform;
                     food = hit.gameObject;
                     currentState = prey.Eat;
                 }
+                if (hit.tag == "Preditor" || hit.tag == "Hunter")
+                {
+                    flee.target = hit.transform;
+                    currentState = prey.Flee;
+                }
+                //if (hit.tag == "Hunter")
+                //{
+                //    flee.target = hit.transform;
+                //    currentState = prey.Flee;
+                //}
+               
             }
         }
       
@@ -119,7 +119,8 @@ public class Prey : MonoBehaviour, IDamageable
                 agent.destination = wander.wandercontol();
                 break;
             case prey.Eat:
-               float distance = Vector3.Distance(transform.position, food.transform.position);
+                agent.speed = 3;
+                float distance = Vector3.Distance(transform.position, food.transform.position);
                 agent.destination = food.transform.position;
                 if (distance < 1)
                 {
@@ -143,6 +144,7 @@ public class Prey : MonoBehaviour, IDamageable
                 if (health <= 0)
                 {
                     Destroy(gameObject);
+                    spawn.creatureCount -= 1;
                 }
                 break;
         }

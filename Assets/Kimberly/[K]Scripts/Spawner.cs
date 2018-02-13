@@ -30,6 +30,7 @@ public class Spawner : MonoBehaviour
             float rany = Random.Range(-range, range);
             spawnCreature.transform.position = transform.position + new Vector3(ranx, 0, rany);
             listOfCreatures.Add(spawnCreature);
+            spawnCreature.GetComponent<Prey>().spawn = this;
             for (int i = 0; i < listOfCreatures.Count; i++)
             {
                 if (creature == null)

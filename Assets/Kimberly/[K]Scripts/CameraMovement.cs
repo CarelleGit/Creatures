@@ -13,6 +13,7 @@ public class CameraMovement : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = false;
         //For Clamps
         //Get the start rotations
         // add -60/60 for new clamps
