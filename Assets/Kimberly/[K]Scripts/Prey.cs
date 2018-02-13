@@ -57,7 +57,10 @@ public class Prey : MonoBehaviour, IDamageable
         {
             currentState = prey.Eat;
         }
-
+        if (currentState == prey.Flee)
+        {
+            agent.speed = agent.speed * 3;
+        }
         if (currentState != prey.Flee)
         {
             Collider[] hitCollider = Physics.OverlapSphere(transform.position, radius);
@@ -73,7 +76,12 @@ public class Prey : MonoBehaviour, IDamageable
                     flee.target = hit.transform;
                     currentState = prey.Flee;
                 }
-
+                if (hit.tag == "Food")
+                {
+                    //seek.target = hit.transform;
+                    food = hit.gameObject;
+                    currentState = prey.Eat;
+                }
             }
         }
       
@@ -111,7 +119,7 @@ public class Prey : MonoBehaviour, IDamageable
                 agent.destination = wander.wandercontol();
                 break;
             case prey.Eat:
-                float distance = Vector3.Distance(transform.position, food.transform.position);
+               float distance = Vector3.Distance(transform.position, food.transform.position);
                 agent.destination = food.transform.position;
                 if (distance < 1)
                 {
@@ -125,7 +133,7 @@ public class Prey : MonoBehaviour, IDamageable
             case prey.Flee:
                 
                     agent.destination = flee.returnFleeVector();
-                    agent.speed = 10;
+                   
                 if (Vector3.Distance(flee.target.transform.position, transform.position) >= 15)
                 {
                     currentState = prey.Wander;

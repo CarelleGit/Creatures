@@ -131,7 +131,7 @@ public class hanter : MonoBehaviour,IDamageable
     }
     void OnCollisionEnter(Collision other)
     {
-        if (other.collider.tag == "prey")
+        if (other.collider.tag == "Prey")
         {
             state = States.wandermap;
             //other.gameObject.SetActive(false);
@@ -145,4 +145,5 @@ public class hanter : MonoBehaviour,IDamageable
         spawn.currentanmontofenemys -= 1;
         Destroy(gameObject);
     }
+   
 }

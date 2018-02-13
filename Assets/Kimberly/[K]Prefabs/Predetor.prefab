@@ -26,8 +26,7 @@ GameObject:
   - component: {fileID: 195789579260381198}
   - component: {fileID: 114282543130891698}
   - component: {fileID: 114298105811939658}
-  - component: {fileID: 114002795101571276}
-  - component: {fileID: 114400028712786060}
+  - component: {fileID: 114396900373893070}
   m_Layer: 0
   m_Name: Predetor
   m_TagString: Preditor
@@ -111,19 +110,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114002795101571276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1689610310762210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5045eeefbf4af1644a92bd3f2883ae2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  target: {fileID: 0}
 --- !u!114 &114282543130891698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,12 +123,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creature: 0
   radius: 10
+  timerSet: 3
   prey: {fileID: 1767653610616920, guid: db996a009e64bfb47add16ec36bbcc97, type: 2}
   hunter: {fileID: 0}
   maxHealth: 10
   currentHealth: 10
   timer: 0
   docileTime: 3
+  setTime: 3
 --- !u!114 &114298105811939658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -156,9 +144,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   target: {fileID: 0}
+<<<<<<< HEAD
+--- !u!114 &114396900373893070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+=======
 --- !u!114 &114400028712786060
 MonoBehaviour:
   m_ObjectHideFlags: 0
+>>>>>>> Harley
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1689610310762210}
@@ -168,8 +162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dis: 4
-  radius: 2
-  speed: 10
+  radius: 10
+  speed: 5
   jitter: 0
   target: {x: 0, y: 0, z: 0}
 --- !u!195 &195789579260381198
