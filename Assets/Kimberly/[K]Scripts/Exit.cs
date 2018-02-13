@@ -10,7 +10,6 @@ public class Exit : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #else
         Application.Quit();
-    }
 #endif
     }
 }

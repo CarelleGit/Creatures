@@ -30,9 +30,6 @@ public class CameraMovement : MonoBehaviour
 
         cameraT.localEulerAngles = new Vector3(vertLookRotation, horzRotation, 0);
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+      
     }
 }
