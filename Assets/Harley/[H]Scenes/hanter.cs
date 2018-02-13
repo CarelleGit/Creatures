@@ -21,12 +21,14 @@ public class hanter : MonoBehaviour,IDamageable
     public float health;
     public float currenthealth;
     public hunterspawn spawn;
+    public Animator wolf;
 	// Use this for initialization
 	void Start () {
         agent = GetComponent<NavMeshAgent>();
         seek = GetComponent<seek>();
         wander = GetComponent<wander>();
         flee = GetComponent<flee>();
+        wolf = GetComponent<Animator>();
         health = currenthealth;
  
 	}
@@ -51,16 +53,21 @@ public class hanter : MonoBehaviour,IDamageable
             case States.wandermap:
                 agent.destination = wander.wandercontol();
                 agent.speed = 5;
+                wolf.SetBool("walk", true);
                 break;
             case States.seek:
+                wolf.SetBool("creep", true);
                 if (seek.target == null)
                 {
+                    wolf.SetBool("creep", false);
                     state = States.wandermap;
                 }
                 agent.destination = seek.returnttargetspos();
                 if (Vector3.Distance(seek.target.transform.position, transform.position) >= 15)
-                {
+                { 
+                    wolf.SetBool("creep", false);
                     state = States.wandermap;
+                    
                 }
                 if (Vector3.Distance(transform.position, seek.target.position) <= 3)
                 {
@@ -69,15 +76,18 @@ public class hanter : MonoBehaviour,IDamageable
 
                 }
                 agent.speed = 10;
-
+               
                 break;
             case States.flee:
                 agent.destination = flee.returnFleeVector();
                 if (Vector3.Distance(flee.target.transform.position, transform.position) >= 15)
                 {
+                    wolf.SetBool("run", false);
                     state = States.wandermap;
+                    
                 }
                 agent.speed = 10;
+                wolf.SetBool("run", true);
                 break;
         }
         if(state == States.wandermap)
