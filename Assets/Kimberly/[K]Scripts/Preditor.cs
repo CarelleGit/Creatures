@@ -104,7 +104,7 @@ public class Preditor : MonoBehaviour
                     creature = preditor.wander;
                 }
                 agent.destination = seek.returnttargetspos();
-                if (Vector3.Distance(transform.position, seek.target.position) <= 3)
+                if (Vector3.Distance(transform.position, seek.target.position) <= 4)
                 {
                     seek.target.GetComponent<IDamageable>().takeDamage(3);
                 }

@@ -3,7 +3,7 @@ guid: 06afc99f87c946847925b76e0273a974
 timeCreated: 1518549618
 licenseType: Free
 ModelImporter:
-  serializedVersion: 21
+  serializedVersion: 19
   fileIDToRecycleName:
     100000: Head
     100002: HeadTop_End
@@ -141,11 +141,135 @@ ModelImporter:
     400130: Spine
     400132: Spine1
     400134: Spine2
+    2300000: Paladin_J_Nordstrom
+    2300002: Paladin_J_Nordstrom_Helmet
+    3300000: Paladin_J_Nordstrom
+    3300002: Paladin_J_Nordstrom_Helmet
     4300000: Paladin_J_Nordstrom
     4300002: Paladin_J_Nordstrom_Helmet
     7400000: Take 001
     7400002: mixamo.com
+    7400004: mixamo.com //// Hips
+    7400006: mixamo.com //// Spine
+    7400008: mixamo.com //// Spine1
+    7400010: mixamo.com //// Spine2
+    7400012: mixamo.com //// Neck
+    7400014: mixamo.com //// Head
+    7400016: mixamo.com //// LeftShoulder
+    7400018: mixamo.com //// LeftArm
+    7400020: mixamo.com //// LeftForeArm
+    7400022: mixamo.com //// LeftHand
+    7400024: mixamo.com //// LeftHandThumb1
+    7400026: mixamo.com //// LeftHandThumb2
+    7400028: mixamo.com //// LeftHandThumb3
+    7400030: mixamo.com //// LeftHandIndex1
+    7400032: mixamo.com //// LeftHandIndex2
+    7400034: mixamo.com //// LeftHandIndex3
+    7400036: mixamo.com //// LeftHandMiddle1
+    7400038: mixamo.com //// LeftHandMiddle2
+    7400040: mixamo.com //// LeftHandMiddle3
+    7400042: mixamo.com //// LeftHandRing1
+    7400044: mixamo.com //// LeftHandRing2
+    7400046: mixamo.com //// LeftHandRing3
+    7400048: mixamo.com //// LeftHandPinky1
+    7400050: mixamo.com //// LeftHandPinky2
+    7400052: mixamo.com //// LeftHandPinky3
+    7400054: mixamo.com //// RightShoulder
+    7400056: mixamo.com //// RightArm
+    7400058: mixamo.com //// RightForeArm
+    7400060: mixamo.com //// RightHand
+    7400062: mixamo.com //// RightHandThumb1
+    7400064: mixamo.com //// RightHandThumb2
+    7400066: mixamo.com //// RightHandThumb3
+    7400068: mixamo.com //// RightHandPinky1
+    7400070: mixamo.com //// RightHandPinky2
+    7400072: mixamo.com //// RightHandPinky3
+    7400074: mixamo.com //// RightHandRing1
+    7400076: mixamo.com //// RightHandRing2
+    7400078: mixamo.com //// RightHandRing3
+    7400080: mixamo.com //// RightHandMiddle1
+    7400082: mixamo.com //// RightHandMiddle2
+    7400084: mixamo.com //// RightHandMiddle3
+    7400086: mixamo.com //// RightHandIndex1
+    7400088: mixamo.com //// RightHandIndex2
+    7400090: mixamo.com //// RightHandIndex3
+    7400092: mixamo.com //// LeftUpLeg
+    7400094: mixamo.com //// LeftLeg
+    7400096: mixamo.com //// LeftFoot
+    7400098: mixamo.com //// LeftToeBase
+    7400100: mixamo.com //// RightUpLeg
+    7400102: mixamo.com //// RightLeg
+    7400104: mixamo.com //// RightFoot
+    7400106: mixamo.com //// RightToeBase
     9500000: //RootNode
+    11100000: Head
+    11100002: HeadTop_End
+    11100004: Hips
+    11100006: LeftArm
+    11100008: LeftFoot
+    11100010: LeftForeArm
+    11100012: LeftHand
+    11100014: LeftHandIndex1
+    11100016: LeftHandIndex2
+    11100018: LeftHandIndex3
+    11100020: LeftHandIndex4
+    11100022: LeftHandMiddle1
+    11100024: LeftHandMiddle2
+    11100026: LeftHandMiddle3
+    11100028: LeftHandMiddle4
+    11100030: LeftHandPinky1
+    11100032: LeftHandPinky2
+    11100034: LeftHandPinky3
+    11100036: LeftHandPinky4
+    11100038: LeftHandRing1
+    11100040: LeftHandRing2
+    11100042: LeftHandRing3
+    11100044: LeftHandRing4
+    11100046: LeftHandThumb1
+    11100048: LeftHandThumb2
+    11100050: LeftHandThumb3
+    11100052: LeftHandThumb4
+    11100054: LeftLeg
+    11100056: LeftShoulder
+    11100058: LeftToe_End
+    11100060: LeftToeBase
+    11100062: LeftUpLeg
+    11100064: Neck
+    11100066: Paladin_J_Nordstrom
+    11100068: //RootNode
+    11100070: Paladin_J_Nordstrom_Helmet
+    11100072: RightArm
+    11100074: RightFoot
+    11100076: RightForeArm
+    11100078: RightHand
+    11100080: RightHandIndex1
+    11100082: RightHandIndex2
+    11100084: RightHandIndex3
+    11100086: RightHandIndex4
+    11100088: RightHandMiddle1
+    11100090: RightHandMiddle2
+    11100092: RightHandMiddle3
+    11100094: RightHandMiddle4
+    11100096: RightHandPinky1
+    11100098: RightHandPinky2
+    11100100: RightHandPinky3
+    11100102: RightHandPinky4
+    11100104: RightHandRing1
+    11100106: RightHandRing2
+    11100108: RightHandRing3
+    11100110: RightHandRing4
+    11100112: RightHandThumb1
+    11100114: RightHandThumb2
+    11100116: RightHandThumb3
+    11100118: RightHandThumb4
+    11100120: RightLeg
+    11100122: RightShoulder
+    11100124: RightToe_End
+    11100126: RightToeBase
+    11100128: RightUpLeg
+    11100130: Spine
+    11100132: Spine1
+    11100134: Spine2
     13700000: Paladin_J_Nordstrom
     13700002: Paladin_J_Nordstrom_Helmet
   materials:
@@ -153,24 +277,21 @@ ModelImporter:
     materialName: 0
     materialSearch: 1
   animations:
-    legacyGenerateAnimations: 4
+    legacyGenerateAnimations: 0
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -178,10 +299,7 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -197,7 +315,6 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-    normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -211,10 +328,10 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: 
+    rootMotionBoneName: Hips
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2

@@ -134,7 +134,7 @@ public class Prey : MonoBehaviour, IDamageable
             case prey.Flee:
                 
                     agent.destination = flee.returnFleeVector();
-                   
+                agent.speed = 15;
                 if (Vector3.Distance(flee.target.transform.position, transform.position) >= 15)
                 {
                     currentState = prey.Wander;

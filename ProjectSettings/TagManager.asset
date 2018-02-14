@@ -5,8 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Preditor
-  - hunter
   - Prey
+  - Food
+  - Hunter
   layers:
   - Default
   - TransparentFX

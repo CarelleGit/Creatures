@@ -140,7 +140,7 @@ MonoBehaviour:
   maxHunger: 1000
   health: 10
   maxHealth: 10
-  radius: 10
+  radius: 20
   currentState: 1
   food: {fileID: 0}
   hunter: {fileID: 0}
